@@ -1,30 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.pojo.Cliente" table="cliente" catalog="basededatosnegocio" optimistic-lock="version">
-        <id name="codCliente" type="string">
-            <column name="CodCliente" length="4" />
-            <generator class="assigned" />
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="string">
-            <column name="Nombre" length="20" />
+            <column name="nombre" length="45" />
         </property>
         <property name="direccion" type="string">
-            <column name="Direccion" length="45" />
-        </property>
-        <property name="codigoPostal" type="string">
-            <column name="CodigoPostal" length="5" />
+            <column name="direccion" length="45" />
         </property>
         <property name="telefono" type="string">
-            <column name="Telefono" length="15" />
+            <column name="telefono" length="45" />
         </property>
-        <property name="dni" type="string">
-            <column name="DNI" length="8" />
+        <property name="cuit" type="string">
+            <column name="cuit" length="45" />
+        </property>
+        <property name="cp" type="java.lang.Integer">
+            <column name="cp" />
         </property>
         <property name="saldo" type="java.lang.Double">
-            <column name="Saldo" precision="22" scale="0" />
+            <column name="saldo" precision="22" scale="0" />
+        </property>
+        <property name="deuda" type="java.lang.Double">
+            <column name="deuda" precision="22" scale="0" />
         </property>
     </class>
 </hibernate-mapping>

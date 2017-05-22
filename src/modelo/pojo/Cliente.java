@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1
+// Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1
 
 
 
@@ -9,37 +9,34 @@ package modelo.pojo;
 public class Cliente  implements java.io.Serializable {
 
 
-     private String codCliente;
+     private Integer codigo;
      private String nombre;
      private String direccion;
-     private String codigoPostal;
      private String telefono;
-     private String dni;
+     private String cuit;
+     private Integer cp;
      private Double saldo;
+     private Double deuda;
 
     public Cliente() {
     }
 
-	
-    public Cliente(String codCliente) {
-        this.codCliente = codCliente;
-    }
-    public Cliente(String codCliente, String nombre, String direccion, String codigoPostal, String telefono, String dni, Double saldo) {
-       this.codCliente = codCliente;
+    public Cliente(String nombre, String direccion, String telefono, String cuit, Integer cp, Double saldo, Double deuda) {
        this.nombre = nombre;
        this.direccion = direccion;
-       this.codigoPostal = codigoPostal;
        this.telefono = telefono;
-       this.dni = dni;
+       this.cuit = cuit;
+       this.cp = cp;
        this.saldo = saldo;
+       this.deuda = deuda;
     }
    
-    public String getCodCliente() {
-        return this.codCliente;
+    public Integer getCodigo() {
+        return this.codigo;
     }
     
-    public void setCodCliente(String codCliente) {
-        this.codCliente = codCliente;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
     public String getNombre() {
         return this.nombre;
@@ -55,13 +52,6 @@ public class Cliente  implements java.io.Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    public String getCodigoPostal() {
-        return this.codigoPostal;
-    }
-    
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
-    }
     public String getTelefono() {
         return this.telefono;
     }
@@ -69,12 +59,19 @@ public class Cliente  implements java.io.Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    public String getDni() {
-        return this.dni;
+    public String getCuit() {
+        return this.cuit;
     }
     
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setCuit(String cuit) {
+        this.cuit = cuit;
+    }
+    public Integer getCp() {
+        return this.cp;
+    }
+    
+    public void setCp(Integer cp) {
+        this.cp = cp;
     }
     public Double getSaldo() {
         return this.saldo;
@@ -82,6 +79,13 @@ public class Cliente  implements java.io.Serializable {
     
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+    public Double getDeuda() {
+        return this.deuda;
+    }
+    
+    public void setDeuda(Double deuda) {
+        this.deuda = deuda;
     }
 
 

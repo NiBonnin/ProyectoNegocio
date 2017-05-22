@@ -1,8 +1,7 @@
 package modelo.pojo;
-// Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1
+// Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1
 
 
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -11,46 +10,39 @@ import java.util.Date;
 public class Producto  implements java.io.Serializable {
 
 
-     private String codigo;
+     private Integer codigo;
      private String nombre;
      private String descripcion;
      private Date fecha;
      private Double precio;
      private Integer stock;
-     private String proveedor;
-     private String rubro;
-     private String subRubro;
+     private Integer proveedor;
+     private Integer rubro;
+     private Integer subRubro;
      private Boolean estado;
      private Date fechaModificacion;
 
     public Producto() {
     }
 
-	
-    public Producto(String codigo) {
-        this.codigo = codigo;
-    }
-    public Producto(String codigo, String nombre, String descripcion, Double precio, String proveedor, String rubro, String subRubro) {
-       this.codigo = codigo;
+    public Producto(String nombre, String descripcion, Date fecha, Double precio, Integer stock, Integer proveedor, Integer rubro, Integer subRubro, Boolean estado, Date fechaModificacion) {
        this.nombre = nombre;
        this.descripcion = descripcion;
-      // this.fecha = fechaDeHoy();
+       this.fecha = fecha;
        this.precio = precio;
-       this.stock = 0;
+       this.stock = stock;
        this.proveedor = proveedor;
        this.rubro = rubro;
        this.subRubro = subRubro;
-       this.estado = true;
-      // this.fechaModificacion = fechaDeHoy();
+       this.estado = estado;
+       this.fechaModificacion = fechaModificacion;
     }
    
-   
-    
-    public String getCodigo() {
+    public Integer getCodigo() {
         return this.codigo;
     }
     
-    public void setCodigo(String codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
     public String getNombre() {
@@ -88,25 +80,25 @@ public class Producto  implements java.io.Serializable {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-    public String getProveedor() {
+    public Integer getProveedor() {
         return this.proveedor;
     }
     
-    public void setProveedor(String proveedor) {
+    public void setProveedor(Integer proveedor) {
         this.proveedor = proveedor;
     }
-    public String getRubro() {
+    public Integer getRubro() {
         return this.rubro;
     }
     
-    public void setRubro(String rubro) {
+    public void setRubro(Integer rubro) {
         this.rubro = rubro;
     }
-    public String getSubRubro() {
+    public Integer getSubRubro() {
         return this.subRubro;
     }
     
-    public void setSubRubro(String subRubro) {
+    public void setSubRubro(Integer subRubro) {
         this.subRubro = subRubro;
     }
     public Boolean getEstado() {

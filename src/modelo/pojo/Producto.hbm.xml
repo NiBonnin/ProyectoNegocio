@@ -1,42 +1,42 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.pojo.Producto" table="producto" catalog="basededatosnegocio" optimistic-lock="version">
-        <id name="codigo" type="string">
-            <column name="Codigo" length="7" />
-            <generator class="assigned" />
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="string">
-            <column name="Nombre" length="15" />
+            <column name="nombre" length="15" />
         </property>
         <property name="descripcion" type="string">
-            <column name="Descripcion" length="45" />
+            <column name="descripcion" />
         </property>
         <property name="fecha" type="date">
-            <column name="Fecha" length="10" />
+            <column name="fecha" length="10" />
         </property>
         <property name="precio" type="java.lang.Double">
-            <column name="Precio" precision="22" scale="0" />
+            <column name="precio" precision="22" scale="0" />
         </property>
         <property name="stock" type="java.lang.Integer">
-            <column name="Stock" />
+            <column name="stock" />
         </property>
-        <property name="proveedor" type="string">
-            <column name="Proveedor" length="7" />
+        <property name="proveedor" type="java.lang.Integer">
+            <column name="proveedor" />
         </property>
-        <property name="rubro" type="string">
-            <column name="Rubro" length="7" />
+        <property name="rubro" type="java.lang.Integer">
+            <column name="rubro" />
         </property>
-        <property name="subRubro" type="string">
-            <column name="SubRubro" length="7" />
+        <property name="subRubro" type="java.lang.Integer">
+            <column name="subRubro" />
         </property>
         <property name="estado" type="java.lang.Boolean">
-            <column name="Estado" />
+            <column name="estado" />
         </property>
         <property name="fechaModificacion" type="date">
-            <column name="FechaModificacion" length="10" />
+            <column name="fechaModificacion" length="10" />
         </property>
     </class>
 </hibernate-mapping>

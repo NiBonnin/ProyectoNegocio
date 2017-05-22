@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.pojo.Listaprecioproducto" table="listaprecioproducto" catalog="basededatosnegocio" optimistic-lock="version">
         <composite-id name="id" class="modelo.pojo.ListaprecioproductoId">

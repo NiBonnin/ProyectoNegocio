@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1
+// Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1
 
 
 
@@ -9,35 +9,30 @@ package modelo.pojo;
 public class Proveedor  implements java.io.Serializable {
 
 
-     private String codProveedor;
+     private Integer codigo;
      private String nombre;
      private String direccion;
-     private String codigoPostal;
+     private Integer cp;
      private String telefono;
      private String cuit;
 
     public Proveedor() {
     }
 
-	
-    public Proveedor(String codProveedor) {
-        this.codProveedor = codProveedor;
-    }
-    public Proveedor(String codProveedor, String nombre, String direccion, String codigoPostal, String telefono, String cuit) {
-       this.codProveedor = codProveedor;
+    public Proveedor(String nombre, String direccion, Integer cp, String telefono, String cuit) {
        this.nombre = nombre;
        this.direccion = direccion;
-       this.codigoPostal = codigoPostal;
+       this.cp = cp;
        this.telefono = telefono;
        this.cuit = cuit;
     }
    
-    public String getCodProveedor() {
-        return this.codProveedor;
+    public Integer getCodigo() {
+        return this.codigo;
     }
     
-    public void setCodProveedor(String codProveedor) {
-        this.codProveedor = codProveedor;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
     public String getNombre() {
         return this.nombre;
@@ -53,12 +48,12 @@ public class Proveedor  implements java.io.Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    public String getCodigoPostal() {
-        return this.codigoPostal;
+    public Integer getCp() {
+        return this.cp;
     }
     
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+    public void setCp(Integer cp) {
+        this.cp = cp;
     }
     public String getTelefono() {
         return this.telefono;

@@ -5,14 +5,9 @@
  */
 package principal;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import modelo.dao.GenericDAO;
-import modelo.pojo.Cliente;
+import modelo.pojo.*;
 
 /**
  *
@@ -27,34 +22,18 @@ public class Main {
         GenericDAO genericDAO = new GenericDAO();
         Cliente contactoRecuperado;
 
-        //Creamos tes instancias de Contacto  (String nombre, String direccion, int codigoPostal, String telefono, String cuit)
-        Cliente cliente1 = new Cliente("Pedro", "dr clark 385", 3260, "86484","15531"); 
-        Cliente cliente2 = new Cliente("Manuel", "dr clark 385", 3260, "86484","15531"); 
-        Cliente cliente3 = new Cliente("Martin", "dr clark 385", 3260, "86484","15531");
-        Cliente cliente4 = new Cliente("Josecito", "dr clark 385", 3260, "86484","15531");
-
-        //Guardamos las tres instancias, guardamos el id del contacto1 para usarlo posteriormente 
-        idAEliminar = clienteDAO.guardaCliente(cliente1); 
-        clienteDAO.guardaCliente(cliente2);
-        clienteDAO.guardaCliente(cliente3);
-        //Modificamos el contacto 2 y lo actualizamos         
-        cliente2.setNombre("Nuevo Cliente 2");
-        clienteDAO.actualizaCliente(cliente2);
-        //genericDAO.save(cliente4);
-        //Recuperamos el contacto1 de la base de datos 
-        //contactoRecuperado = genericDAO.get(Cliente.class, idAEliminar);
-        contactoRecuperado = clienteDAO.obtenContacto(idAEliminar);
-        System.out.println("Recuperamos a " + contactoRecuperado.getNombre());
-
-        //Eliminamos al contactoRecuperado (que es el contacto3)
-        clienteDAO.eliminaCliente(contactoRecuperado);
+        //Creamos tes instancias de Contacto  (int codCliente, String nombre, String direccion, String codigoPostal, String telefono, String dni, Double saldo
+        Cliente cliente1 = new Cliente("Pedro", "dr clark 385", "3260", "86484",15531,1.2,51.0);
+        Cliente cliente2 = new Cliente("Manuel", "dr clark 385", "3260", "86484",15531,1.2,51.0); 
+        Cliente cliente3 = new Cliente("Martin", "dr clark 385", "3260", "86484",15531,1.2,51.0);
+        Cliente cliente4 = new Cliente("Josecito", "dr clark 385", "3260", "86484",15531,1.2,51.0);
         
-        //Obtenemos la lista de contactos que quedan en la base de datos y la mostramos
-        List<Cliente> listaContactos = clienteDAO.obtenListaContactos();
-        System.out.println("Hay " + listaContactos.size() + " clientes en la base de datos");
+        genericDAO.save(cliente2);
+        
+        //List<Cliente> listaContactos = clienteDAO.obtenListaContactos();
 
-        for(Cliente c : listaContactos)
-        {System.out.println("-> " + c.getNombre());
-        } */
+        //for(Cliente c : listaContactos)
+        //{System.out.println("-> " + c.getNombre());
+        //} 
     }     
 }

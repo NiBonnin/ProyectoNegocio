@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Proveedor" table="proveedor" catalog="basededatosnegocio" optimistic-lock="version">
+        <id name="codProveedor" type="string">
+            <column name="CodProveedor" length="7" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="20" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="45" />
+        </property>
+        <property name="codigoPostal" type="string">
+            <column name="CodigoPostal" length="5" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="15" />
+        </property>
+        <property name="cuit" type="string">
+            <column name="Cuit" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>

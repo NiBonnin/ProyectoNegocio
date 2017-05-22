@@ -5,7 +5,14 @@
  */
 package principal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.dao.GenericDAO;
+import modelo.pojo.Cliente;
 
 /**
  *
@@ -16,10 +23,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
- 
-        int idAEliminar = 2;
-        ClienteDAO clienteDAO = new ClienteDAO(); 
+    public static void main(String[] args){
         GenericDAO genericDAO = new GenericDAO();
         Cliente contactoRecuperado;
 
@@ -51,6 +55,6 @@ public class Main {
 
         for(Cliente c : listaContactos)
         {System.out.println("-> " + c.getNombre());
-        } 
+        } */
     }     
 }

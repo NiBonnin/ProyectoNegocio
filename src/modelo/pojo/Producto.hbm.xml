@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 01:38:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Producto" table="producto" catalog="basededatosnegocio" optimistic-lock="version">
+        <id name="codigo" type="string">
+            <column name="Codigo" length="7" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="15" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="45" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" />
+        </property>
+        <property name="precio" type="java.lang.Double">
+            <column name="Precio" precision="22" scale="0" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="Stock" />
+        </property>
+        <property name="proveedor" type="string">
+            <column name="Proveedor" length="7" />
+        </property>
+        <property name="rubro" type="string">
+            <column name="Rubro" length="7" />
+        </property>
+        <property name="subRubro" type="string">
+            <column name="SubRubro" length="7" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="Estado" />
+        </property>
+        <property name="fechaModificacion" type="date">
+            <column name="FechaModificacion" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -20,6 +20,7 @@ import org.hibernate.Transaction;
  * @author Nico
  */
 public class GenericDAO {
+    
     public static List<Cliente> layDS(){
         List<Cliente> lst = null;
         
@@ -59,7 +60,7 @@ public class GenericDAO {
 
     /***/
     public <T> T get(final Class<T> type, final int id){
-      Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction trans=session.beginTransaction();
         Object object = (T) session.get(type, id);
         trans.commit();
@@ -78,7 +79,7 @@ public class GenericDAO {
 
     /***/
     public <T> void saveOrUpdate(final T o){
-        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+       Session session=HibernateUtil.getSessionFactory().getCurrentSession();
        Transaction trans=session.beginTransaction();
        session.saveOrUpdate(o);
        trans.commit();

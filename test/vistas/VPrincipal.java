@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -50,7 +51,7 @@ public class VPrincipal extends javax.swing.JFrame {
         llenarCBNombreProveedor();
     }
 
-
+    
     String BDProducto = "Productos";
     String BDProveedor = "Proveedor";
     String BDCliente = "Cliente";

@@ -38,7 +38,7 @@ public class Main {
         
         genericDAO.save(produc1);
         System.out.println("ta");
-        vista.setVisible(true);
+        //vista.setVisible(true);
         //List<Cliente> listaContactos = clienteDAO.obtenListaContactos();
 
         //for(Cliente c : listaContactos)

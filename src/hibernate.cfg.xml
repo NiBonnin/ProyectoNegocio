@@ -42,11 +42,12 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/basededatosnegocio?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/basededatosnegocio</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="modelo/pojo/Producto.hbm.xml"/>
+    <mapping resource="modelo/pojo/Usuario.hbm.xml"/>
     <mapping resource="modelo/pojo/Cliente.hbm.xml"/>
     <mapping resource="modelo/pojo/Listaprecioproducto.hbm.xml"/>
     <mapping resource="modelo/pojo/Proveedor.hbm.xml"/>

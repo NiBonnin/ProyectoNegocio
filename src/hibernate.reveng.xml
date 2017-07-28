@@ -41,4 +41,9 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="basededatosnegocio"/>
+  <table-filter match-name="listaprecioproducto"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="producto"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="proveedor"/>
 </hibernate-reverse-engineering>

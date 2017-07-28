@@ -5,6 +5,7 @@
  */
 package vistaInicio;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,30 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.Border;
+import javax.swing.plaf.ColorUIResource;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.LinearGradientPaint;
+import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.basic.BasicProgressBarUI;
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
 
 /**
  *
@@ -25,8 +50,21 @@ public class VistaSplash extends javax.swing.JFrame {
      * Creates new form VistaInicio
      */
     public VistaSplash() {
+        //SubstanceLookAndFeel.setSkin("CremeSkin");//setSkin("org.jvnet.substance.theme.CremeSkin");
+        //SubstanceLookAndFeel.setCurrentTheme("org.jvnet.substance.theme.SubstanceAquaTheme");
         initComponents();
         inicio();
+        //AVerAhora();
+        try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    ex.printStackTrace();
+                }
+                this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //this.add(new TestPane());
+                this.pack();
+                this.setLocationRelativeTo(null);
+                this.setVisible(true);
     }
     
     
@@ -45,6 +83,13 @@ public class VistaSplash extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jProgressBar1.setBackground(new java.awt.Color(153, 255, 102));
+        jProgressBar1.setForeground(new java.awt.Color(0, 0, 0));
+        jProgressBar1.setValue(10);
+        jProgressBar1.setBorderPainted(false);
+        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        jProgressBar1.setStringPainted(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel1.setText("Nombre del programa");
@@ -71,7 +116,7 @@ public class VistaSplash extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(110, 110, 110)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -84,11 +129,76 @@ public class VistaSplash extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+   
+
+  
+
+    public void AVerAhora() {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    ex.printStackTrace();
+                }
+
+                JFrame frame = new JFrame("Testing");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.add(new TestPane());
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+        });
+    }
+
+    public class TestPane extends JPanel {
+
+        public TestPane() {
+            //setBackground(Color.BLACK);
+
+            JProgressBar normalPB = new JProgressBar();
+            JProgressBar normalPBe = new JProgressBar();
+            //setLayout(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            //gbc.gridwidth = GridBagConstraints.REMAINDER;
+
+            add(normalPB, gbc);
+            add(normalPBe, gbc);
+            normalPBe.setValue(15);
+            Timer timer = new Timer(250, new ActionListener() {
+
+                private int count = 0;
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    normalPB.setValue(count);
+                    count++;
+                    if (count >= 100) {
+                        ((Timer)e.getSource()).stop();
+                    }
+                }
+            });
+            timer.start();
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     private void inicio(){
+        
         //Creamos un Thread para mejorar el ejemplo
         final Thread t;
         //Inicializamos
         t = new Thread(new Runnable() {
+            
             //Implementamos el método run()
             @Override
             public void run() {

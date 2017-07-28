@@ -1,19 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/05/2017 04:20:50 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27/07/2017 15:38:07 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.pojo.Listaprecioproducto" table="listaprecioproducto" catalog="basededatosnegocio" optimistic-lock="version">
-        <composite-id name="id" class="modelo.pojo.ListaprecioproductoId">
-            <key-property name="codigoProducto" type="string">
-                <column name="codigoProducto" length="7" />
-            </key-property>
-            <key-property name="precio" type="java.lang.Double">
-                <column name="precio" precision="22" scale="0" />
-            </key-property>
-            <key-property name="fecha" type="date">
-                <column name="fecha" length="10" />
-            </key-property>
-        </composite-id>
+        <id name="idlista" type="java.lang.Integer">
+            <column name="idlista" />
+            <generator class="identity" />
+        </id>
+        <property name="codigoProducto" type="string">
+            <column name="codigoProducto" length="7" />
+        </property>
+        <property name="precio" type="java.lang.Double">
+            <column name="precio" precision="22" scale="0" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -50,11 +50,11 @@ public class GenericDAO3 {
     }
     
 
-
-    public void delete(final Object object){
+    
+    public void delete(final Object o){
        Session session=HibernateUtil.getSessionFactory().openSession();
        Transaction trans=session.beginTransaction();
-       session.delete(object);
+       session.delete(o);
        trans.commit();
     }
 

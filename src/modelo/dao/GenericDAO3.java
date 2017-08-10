@@ -19,7 +19,7 @@ import org.hibernate.Transaction;
  *
  * @author Nico
  */
-public class GenericDAO {
+public class GenericDAO3 {
     
     public static List<Cliente> layDS(){
         List<Cliente> lst = null;
@@ -42,7 +42,7 @@ public class GenericDAO {
     @Resource(name = "sessionFactory")
     private SessionFactory sessionFactory;
     public <T> T save(final T o){
-        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session=HibernateUtil.getSessionFactory().openSession();
         Transaction trans=session.beginTransaction();
         Object object = (T) session.save(o);
         trans.commit();
@@ -52,7 +52,7 @@ public class GenericDAO {
 
 
     public void delete(final Object object){
-       Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+       Session session=HibernateUtil.getSessionFactory().openSession();
        Transaction trans=session.beginTransaction();
        session.delete(object);
        trans.commit();
@@ -60,7 +60,7 @@ public class GenericDAO {
 
     /***/
     public <T> T get(final Class<T> type, final int id){
-        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session=HibernateUtil.getSessionFactory().openSession();
         Transaction trans=session.beginTransaction();
         Object object = (T) session.get(type, id);
         trans.commit();
@@ -69,7 +69,7 @@ public class GenericDAO {
 
     /***/
     public <T> T merge(final T o)   {
-        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session=HibernateUtil.getSessionFactory().openSession();
         Transaction trans=session.beginTransaction();
         Object object = (T) session.merge(o);
         trans.commit();
@@ -79,7 +79,7 @@ public class GenericDAO {
 
     /***/
     public <T> void saveOrUpdate(final T o){
-       Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+       Session session=HibernateUtil.getSessionFactory().openSession();
        Transaction trans=session.beginTransaction();
        session.saveOrUpdate(o);
        trans.commit();
@@ -87,7 +87,7 @@ public class GenericDAO {
     }
 
     public <T> List<T> getAll(final Class<T> type) {
-        Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session=HibernateUtil.getSessionFactory().openSession();
         Transaction trans=session.beginTransaction();
         final Criteria crit = session.createCriteria(type);
         List<T> list = crit.list();
@@ -97,4 +97,5 @@ public class GenericDAO {
         final Criteria crit = session.createCriteria(type);
         return crit.list();*/
     }
+
 }

@@ -5,6 +5,10 @@
  */
 package vistaInicio;
 
+import modelo.dao.GenericDAO3;
+import modelo.dao.InterGenericDao;
+import modelo.pojo.Usuario;
+
 /**
  *
  * @author Nico
@@ -131,6 +135,14 @@ public class VistaLogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public boolean comprobarDatos(){
+        Usuario usur = new Usuario(TextFieldUsuario.getText(), TextFieldContraseña.getText());
+       /* InterGenericDao gener = new InterGenericDao() {};
+        int i = 0;
+        gener.g;*/
+        return true;
+    }
     /**
      * @param args the command line arguments
      */

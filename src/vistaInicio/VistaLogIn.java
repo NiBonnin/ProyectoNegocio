@@ -6,6 +6,7 @@
 package vistaInicio;
 
 import modelo.dao.GenericDao;
+import modelo.dao.UsuarioService;
 import modelo.pojo.Usuario;
 
 /**
@@ -19,6 +20,7 @@ public class VistaLogIn extends javax.swing.JFrame {
      */
     public VistaLogIn() {
         initComponents();
+       
     }
 
     /**
@@ -38,6 +40,7 @@ public class VistaLogIn extends javax.swing.JFrame {
         TextFieldUsuario = new javax.swing.JTextField();
         BotonConectarse = new javax.swing.JButton();
         FondoVistaLogIn = new javax.swing.JLabel();
+        BotonInvitado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +88,11 @@ public class VistaLogIn extends javax.swing.JFrame {
         );
 
         BotonConectarse.setText("Conectarse");
+        BotonConectarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonConectarseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelGeneralLayout = new javax.swing.GroupLayout(PanelGeneral);
         PanelGeneral.setLayout(PanelGeneralLayout);
@@ -109,6 +117,13 @@ public class VistaLogIn extends javax.swing.JFrame {
 
         FondoVistaLogIn.setText("falta el fondo");
 
+        BotonInvitado.setText("Consulta de precios");
+        BotonInvitado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonInvitadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +135,10 @@ public class VistaLogIn extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addComponent(PanelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(85, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonInvitado)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,19 +147,34 @@ public class VistaLogIn extends javax.swing.JFrame {
                 .addComponent(FondoVistaLogIn)
                 .addGap(60, 60, 60)
                 .addComponent(PanelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(BotonInvitado)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonConectarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConectarseActionPerformed
+        if (comprobarDatos()== true) {
+            System.out.println("es igual");
+            //abrir siguiente vista
+        } else {//mostrar un error de datos
+            System.out.println("esta mal");
+        }
+    }//GEN-LAST:event_BotonConectarseActionPerformed
+
+    private void BotonInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInvitadoActionPerformed
+        //abrir la vista de lista de precios
+    }//GEN-LAST:event_BotonInvitadoActionPerformed
+
     
     public boolean comprobarDatos(){
-        Usuario usur = new Usuario(TextFieldUsuario.getText(), TextFieldContraseña.getText());
-       /* InterGenericDao gener = new InterGenericDao() {};
-        int i = 0;
-        gener.g;*/
-        return true;
+        Usuario usuario = new Usuario(TextFieldUsuario.getText(), TextFieldContraseña.getText());
+        UsuarioService userv = new UsuarioService();
+        if (userv.validacion(usuario)) {return true;}
+        else {return false;}
+        
     }
     /**
      * @param args the command line arguments
@@ -179,6 +213,7 @@ public class VistaLogIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonConectarse;
+    private javax.swing.JButton BotonInvitado;
     private javax.swing.JLabel FondoVistaLogIn;
     private javax.swing.JLabel LabelContraseña;
     private javax.swing.JLabel LabelUsuario;

@@ -21,7 +21,17 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        GenericDao genericDAO = new GenericDao() {};
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*GenericDao genericDAO = new GenericDao() {};
         Cliente contactoRecuperado;
         
         
@@ -42,7 +52,7 @@ public class Main {
         System.out.println("ta");
         //vista.get
         //vista.setVisible(true);
-        /*List<Cliente> listaContactos = genericDAO.getAll(Cliente.class);
+        List<Cliente> listaContactos = genericDAO.getAll(Cliente.class);
         System.out.println("taa");
 
         for(Cliente c : listaContactos)

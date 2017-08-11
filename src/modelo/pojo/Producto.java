@@ -37,6 +37,22 @@ public class Producto  implements java.io.Serializable {
        this.estado = estado;
        this.fechaModificacion = fechaModificacion;
     }
+
+    public Producto(Integer codigo, String nombre, String descripcion, Date fecha, Double precio, Integer stock, Integer proveedor, Integer rubro, Integer subRubro, Boolean estado, Date fechaModificacion) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.precio = precio;
+        this.stock = stock;
+        this.proveedor = proveedor;
+        this.rubro = rubro;
+        this.subRubro = subRubro;
+        this.estado = estado;
+        this.fechaModificacion = fechaModificacion;
+    }
+    
+    
    
     public Integer getCodigo() {
         return this.codigo;

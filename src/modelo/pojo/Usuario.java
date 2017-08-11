@@ -20,6 +20,14 @@ public class Usuario  implements java.io.Serializable {
        this.nombre = nombre;
        this.contrasenia = contrasenia;
     }
+
+    public Usuario(Integer idusuario, String nombre, String contrasenia) {
+        this.idusuario = idusuario;
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+    }
+    
+    
    
     public Integer getIdusuario() {
         return this.idusuario;

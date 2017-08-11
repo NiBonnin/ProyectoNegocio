@@ -23,6 +23,13 @@ public class Listaprecioproducto  implements java.io.Serializable {
        this.precio = precio;
        this.fecha = fecha;
     }
+    
+    public Listaprecioproducto(Integer idlista, String codigoProducto, Double precio, Date fecha) {
+       this.idlista = idlista;
+       this.codigoProducto = codigoProducto;
+       this.precio = precio;
+       this.fecha = fecha;
+    }
    
     public Integer getIdlista() {
         return this.idlista;

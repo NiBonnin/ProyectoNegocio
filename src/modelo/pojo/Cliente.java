@@ -30,6 +30,17 @@ public class Cliente  implements java.io.Serializable {
        this.saldo = saldo;
        this.deuda = deuda;
     }
+    
+    public Cliente(Integer codigo, String nombre, String direccion, String telefono, String cuit, Integer cp, Double saldo, Double deuda) {
+       this.codigo = codigo;
+       this.nombre = nombre;
+       this.direccion = direccion;
+       this.telefono = telefono;
+       this.cuit = cuit;
+       this.cp = cp;
+       this.saldo = saldo;
+       this.deuda = deuda;
+    }
    
     public Integer getCodigo() {
         return this.codigo;

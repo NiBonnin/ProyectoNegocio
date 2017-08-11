@@ -5,8 +5,7 @@
  */
 package vistaInicio;
 
-import modelo.dao.GenericDAO3;
-import modelo.dao.InterGenericDao;
+import modelo.dao.GenericDao;
 import modelo.pojo.Usuario;
 
 /**

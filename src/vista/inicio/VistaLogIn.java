@@ -8,6 +8,7 @@ package vista.inicio;
 import modelo.dao.GenericDao;
 import modelo.dao.UsuarioService;
 import modelo.pojo.Usuario;
+import vista.consulta.VConsultaCliente;
 
 /**
  *
@@ -20,7 +21,8 @@ public class VistaLogIn extends javax.swing.JFrame {
      */
     public VistaLogIn() {
         initComponents();
-       
+        this.setLocationRelativeTo(null);
+        this.setFocusable(true);       
     }
 
     /**
@@ -156,17 +158,21 @@ public class VistaLogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonConectarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConectarseActionPerformed
-        if (comprobarDatos()== true) {
+        /*if (comprobarDatos()== true) {
             System.out.println("es igual");
             VGeneral gral = new VGeneral();
             gral.setVisible(true);
         } else {//mostrar un error de datos
             System.out.println("esta mal");
-        }
+        }*/
+        VGeneral gral = new VGeneral();
+        gral.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BotonConectarseActionPerformed
 
     private void BotonInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInvitadoActionPerformed
-        //abrir la vista de lista de precios
+        VConsultaCliente vCliente = new VConsultaCliente();
+        vCliente.setVisible(true);
     }//GEN-LAST:event_BotonInvitadoActionPerformed
 
     

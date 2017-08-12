@@ -5,6 +5,8 @@
  */
 package vista.inicio;
 
+import vista.consulta.*;
+
 /**
  *
  * @author Nico
@@ -16,6 +18,8 @@ public class Administracion extends javax.swing.JFrame {
      */
     public Administracion() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setFocusable(true);
     }
 
     /**
@@ -27,20 +31,40 @@ public class Administracion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btAdmProveedor = new javax.swing.JButton();
+        btAdmCliente = new javax.swing.JButton();
+        btAdmProducto = new javax.swing.JButton();
+        btAdmUsuario = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton2.setText("Proveedores");
+        btAdmProveedor.setText("Proveedores");
+        btAdmProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdmProveedorActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Clientes");
+        btAdmCliente.setText("Clientes");
+        btAdmCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdmClienteActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Productos");
+        btAdmProducto.setText("Productos");
+        btAdmProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdmProductoActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Usuarios");
+        btAdmUsuario.setText("Usuarios");
+        btAdmUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdmUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,11 +74,11 @@ public class Administracion extends javax.swing.JFrame {
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton4)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3))
+                        .addComponent(btAdmProducto)
+                        .addComponent(btAdmProveedor)
+                        .addComponent(btAdmCliente))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(btAdmUsuario)
                         .addGap(22, 22, 22)))
                 .addContainerGap(295, Short.MAX_VALUE))
         );
@@ -62,18 +86,38 @@ public class Administracion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jButton4)
+                .addComponent(btAdmProducto)
                 .addGap(70, 70, 70)
-                .addComponent(jButton2)
+                .addComponent(btAdmProveedor)
                 .addGap(63, 63, 63)
-                .addComponent(jButton3)
+                .addComponent(btAdmCliente)
                 .addGap(66, 66, 66)
-                .addComponent(jButton5)
+                .addComponent(btAdmUsuario)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btAdmProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdmProductoActionPerformed
+        VConsultaProducto vistaProducto = new VConsultaProducto();
+        vistaProducto.setVisible(true);
+    }//GEN-LAST:event_btAdmProductoActionPerformed
+
+    private void btAdmProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdmProveedorActionPerformed
+        VConsultaProveedor vistaProveedor = new VConsultaProveedor();
+        vistaProveedor.setVisible(true);
+    }//GEN-LAST:event_btAdmProveedorActionPerformed
+
+    private void btAdmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdmClienteActionPerformed
+        VConsultaCliente vistaCliente = new VConsultaCliente();
+        vistaCliente.setVisible(true);
+    }//GEN-LAST:event_btAdmClienteActionPerformed
+
+    private void btAdmUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdmUsuarioActionPerformed
+        VConsultaUsuario vistaUsuario = new VConsultaUsuario();
+        vistaUsuario.setVisible(true);
+    }//GEN-LAST:event_btAdmUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,9 +155,9 @@ public class Administracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btAdmCliente;
+    private javax.swing.JButton btAdmProducto;
+    private javax.swing.JButton btAdmProveedor;
+    private javax.swing.JButton btAdmUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,8 @@ public class VGeneral extends javax.swing.JFrame {
      */
     public VGeneral() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setFocusable(true);
     }
 
     /**

@@ -9,7 +9,8 @@ package principal;
 import java.util.List;
 import modelo.dao.GenericDao;
 import modelo.pojo.*;
-import vistaInicio.VistaLogIn;
+import vista.inicio.JProgressBarTest;
+import vista.inicio.VistaLogIn;
 
 /**
  *
@@ -22,12 +23,7 @@ public class Main {
      */
     public static void main(String[] args){
         
-        
-        
-        
-        
-        
-        
+        JProgressBarTest.main(args);
         
         
         

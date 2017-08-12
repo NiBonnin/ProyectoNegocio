@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistaInicio;
+package vista.inicio;
 
 import modelo.dao.GenericDao;
 import modelo.dao.UsuarioService;
@@ -158,7 +158,8 @@ public class VistaLogIn extends javax.swing.JFrame {
     private void BotonConectarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConectarseActionPerformed
         if (comprobarDatos()== true) {
             System.out.println("es igual");
-            //abrir siguiente vista
+            VGeneral gral = new VGeneral();
+            gral.setVisible(true);
         } else {//mostrar un error de datos
             System.out.println("esta mal");
         }

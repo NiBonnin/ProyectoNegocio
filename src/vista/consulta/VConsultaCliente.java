@@ -5,6 +5,12 @@
  */
 package vista.consulta;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import modelo.dao.ClienteService;
+import modelo.dao.GenericDao;
+import modelo.pojo.*;
+
 /**
  *
  * @author Nico
@@ -12,13 +18,28 @@ package vista.consulta;
 public class VConsultaCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultaClientes
+     * Creates new form VConsultaClientee
      */
+    
+    ClienteService cs = new ClienteService();
+    
     public VConsultaCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setFocusable(true);
+        this.setFocusable(true); 
+        initVista(cs.getListaCliente());
+        
+       
+        
+        
     }
+
+    DefaultTableModel modeloCliente = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int fila, int columna) {
+                    return false; //Con esto conseguimos que la tabla no se pueda editar
+                }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,48 +49,44 @@ public class VConsultaCliente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        basededatosnegocioPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("basededatosnegocioPU").createEntityManager();
-        clienteQuery = java.beans.Beans.isDesignTime() ? null : basededatosnegocioPUEntityManager.createQuery("SELECT c FROM Cliente c");
-        clienteList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clienteQuery.getResultList();
         jPanel6 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jBTBuscarLClientes = new javax.swing.JButton();
+        btBuscar = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        TFLNombreCliente = new javax.swing.JTextField();
-        TFLCodCliente = new javax.swing.JTextField();
-        TFLDirCliente = new javax.swing.JTextField();
-        TFLCPCliente = new javax.swing.JTextField();
-        TFLTelCliente = new javax.swing.JTextField();
-        TFLDNICliente = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
+        tfCodigo = new javax.swing.JTextField();
+        tfDireccion = new javax.swing.JTextField();
+        tfCodigoPostal = new javax.swing.JTextField();
+        tfTelefono = new javax.swing.JTextField();
+        tfDNI = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        TFLSaldoCliente = new javax.swing.JTextField();
+        tfSaldo = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        jBTAgregarClientes = new javax.swing.JButton();
+        btVistaAgregar = new javax.swing.JButton();
         jBTSalirListaClientes = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaCliente = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel41.setText("Nombre");
 
         jLabel42.setText("Codigo postal");
 
-        jBTBuscarLClientes.setText("Buscar");
-        jBTBuscarLClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+        btBuscar.setText("Buscar");
+        btBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBTBuscarLClientesMouseClicked(evt);
+                btBuscarMouseClicked(evt);
             }
         });
-        jBTBuscarLClientes.addActionListener(new java.awt.event.ActionListener() {
+        btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTBuscarLClientesActionPerformed(evt);
+                btBuscarActionPerformed(evt);
             }
         });
 
@@ -77,39 +94,39 @@ public class VConsultaCliente extends javax.swing.JFrame {
 
         jLabel44.setText("Direccion");
 
-        TFLNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLNombreClienteKeyPressed(evt);
+                tfNombreKeyPressed(evt);
             }
         });
 
-        TFLCodCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLCodClienteKeyPressed(evt);
+                tfCodigoKeyPressed(evt);
             }
         });
 
-        TFLDirCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLDirClienteKeyPressed(evt);
+                tfDireccionKeyPressed(evt);
             }
         });
 
-        TFLCPCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfCodigoPostal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLCPClienteKeyPressed(evt);
+                tfCodigoPostalKeyPressed(evt);
             }
         });
 
-        TFLTelCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLTelClienteKeyPressed(evt);
+                tfTelefonoKeyPressed(evt);
             }
         });
 
-        TFLDNICliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfDNI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLDNIClienteKeyPressed(evt);
+                tfDNIKeyPressed(evt);
             }
         });
 
@@ -119,9 +136,9 @@ public class VConsultaCliente extends javax.swing.JFrame {
 
         jLabel47.setText("Saldo");
 
-        TFLSaldoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfSaldo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFLSaldoClienteKeyPressed(evt);
+                tfSaldoKeyPressed(evt);
             }
         });
 
@@ -134,36 +151,36 @@ public class VConsultaCliente extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLCodCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLDirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLCPCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel42))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLTelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel46))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(TFLDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFLSaldoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addComponent(jBTBuscarLClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(jLabel47)))
@@ -185,24 +202,24 @@ public class VConsultaCliente extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TFLNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLCodCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLDirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLCPCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLTelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFLSaldoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel48)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBTBuscarLClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        jBTAgregarClientes.setText("Agregar Clientes");
-        jBTAgregarClientes.addActionListener(new java.awt.event.ActionListener() {
+        btVistaAgregar.setText("Agregar Clientes");
+        btVistaAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTAgregarClientesActionPerformed(evt);
+                btVistaAgregarActionPerformed(evt);
             }
         });
 
@@ -213,117 +230,118 @@ public class VConsultaCliente extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, clienteList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigo}"));
-        columnBinding.setColumnName("Codigo");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
-        columnBinding.setColumnName("Nombre");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${direccion}"));
-        columnBinding.setColumnName("Direccion");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cp}"));
-        columnBinding.setColumnName("Cp");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cuit}"));
-        columnBinding.setColumnName("Cuit");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${saldo}"));
-        columnBinding.setColumnName("Saldo");
-        columnBinding.setColumnClass(Double.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefono}"));
-        columnBinding.setColumnName("Telefono");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-
-        jScrollPane1.setViewportView(jTable1);
+        tablaCliente.setModel(modeloCliente);
+        jScrollPane2.setViewportView(tablaCliente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1120, 1120, 1120)
-                .addComponent(jBTSalirListaClientes))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addComponent(jBTAgregarClientes))
+            .addGap(0, 1068, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(1029, 1029, 1029)
+                            .addComponent(jBTSalirListaClientes))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(79, 79, 79)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(130, 130, 130)
+                            .addComponent(btVistaAgregar)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jBTSalirListaClientes)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jBTSalirListaClientes)
+                    .addGap(37, 37, 37)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jBTAgregarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(2, 2, 2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(70, 70, 70)
+                            .addComponent(btVistaAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBTBuscarLClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBTBuscarLClientesMouseClicked
+    private void btBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btBuscarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBTBuscarLClientesMouseClicked
+    }//GEN-LAST:event_btBuscarMouseClicked
 
-    private void jBTBuscarLClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTBuscarLClientesActionPerformed
+    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBTBuscarLClientesActionPerformed
+    }//GEN-LAST:event_btBuscarActionPerformed
 
-    private void TFLNombreClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLNombreClienteKeyPressed
+    private void tfNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLNombreClienteKeyPressed
+    }//GEN-LAST:event_tfNombreKeyPressed
 
-    private void TFLCodClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLCodClienteKeyPressed
+    private void tfCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodigoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLCodClienteKeyPressed
+    }//GEN-LAST:event_tfCodigoKeyPressed
 
-    private void TFLDirClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLDirClienteKeyPressed
+    private void tfDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccionKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLDirClienteKeyPressed
+    }//GEN-LAST:event_tfDireccionKeyPressed
 
-    private void TFLCPClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLCPClienteKeyPressed
+    private void tfCodigoPostalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCodigoPostalKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLCPClienteKeyPressed
+    }//GEN-LAST:event_tfCodigoPostalKeyPressed
 
-    private void TFLTelClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLTelClienteKeyPressed
+    private void tfTelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelefonoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLTelClienteKeyPressed
+    }//GEN-LAST:event_tfTelefonoKeyPressed
 
-    private void TFLDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLDNIClienteKeyPressed
+    private void tfDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDNIKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLDNIClienteKeyPressed
+    }//GEN-LAST:event_tfDNIKeyPressed
 
-    private void TFLSaldoClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFLSaldoClienteKeyPressed
+    private void tfSaldoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSaldoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFLSaldoClienteKeyPressed
+    }//GEN-LAST:event_tfSaldoKeyPressed
 
-    private void jBTAgregarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTAgregarClientesActionPerformed
+    private void btVistaAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVistaAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBTAgregarClientesActionPerformed
+    }//GEN-LAST:event_btVistaAgregarActionPerformed
 
     private void jBTSalirListaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSalirListaClientesActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_jBTSalirListaClientesActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void initVista(List<Cliente> listaCliente){        
+        modeloCliente.addColumn("Codigo");
+        modeloCliente.addColumn("Nombre");
+        modeloCliente.addColumn("Direccion");
+        modeloCliente.addColumn("Codigo Postal");
+        modeloCliente.addColumn("Telefono");
+        modeloCliente.addColumn("DNI");
+        modeloCliente.addColumn("Saldo");
+        Object[] fila = new Object[6]; 
+        for(Cliente c : listaCliente){
+            fila[0]= c.getCodigo();
+            fila[1]= c.getNombre();
+            fila[2]= c.getDireccion();
+            fila[3]= c.getCp();
+            fila[4]= c.getTelefono();
+            fila[5]= c.getSaldo(); 
+            modeloCliente.addRow(fila);          
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -348,8 +366,6 @@ public class VConsultaCliente extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -360,18 +376,8 @@ public class VConsultaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TFLCPCliente;
-    private javax.swing.JTextField TFLCodCliente;
-    private javax.swing.JTextField TFLDNICliente;
-    private javax.swing.JTextField TFLDirCliente;
-    private javax.swing.JTextField TFLNombreCliente;
-    private javax.swing.JTextField TFLSaldoCliente;
-    private javax.swing.JTextField TFLTelCliente;
-    private javax.persistence.EntityManager basededatosnegocioPUEntityManager;
-    private java.util.List<vista.consulta.Cliente> clienteList;
-    private javax.persistence.Query clienteQuery;
-    private javax.swing.JButton jBTAgregarClientes;
-    private javax.swing.JButton jBTBuscarLClientes;
+    private javax.swing.JButton btBuscar;
+    private javax.swing.JButton btVistaAgregar;
     private javax.swing.JButton jBTSalirListaClientes;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -382,8 +388,14 @@ public class VConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaCliente;
+    private javax.swing.JTextField tfCodigo;
+    private javax.swing.JTextField tfCodigoPostal;
+    private javax.swing.JTextField tfDNI;
+    private javax.swing.JTextField tfDireccion;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfSaldo;
+    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }

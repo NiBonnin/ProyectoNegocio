@@ -27,6 +27,7 @@ public class Main {
         
         
         
+        
         /*GenericDao genericDAO = new GenericDao() {};
         Cliente contactoRecuperado;
         

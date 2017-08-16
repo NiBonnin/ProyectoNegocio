@@ -12,12 +12,10 @@ package vista.consulta;
 public class VConsultaProveedor extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultaProveedores
+     * Creates new form VConsultaProveedorr
      */
     public VConsultaProveedor() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setFocusable(true);
     }
 
     /**
@@ -28,11 +26,7 @@ public class VConsultaProveedor extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        basededatosnegocioPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("basededatosnegocioPU").createEntityManager();
-        proveedorQuery = java.beans.Beans.isDesignTime() ? null : basededatosnegocioPUEntityManager.createQuery("SELECT p FROM Proveedor p");
-        proveedorList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : proveedorQuery.getResultList();
         jBTSalirListaProveedores = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -49,10 +43,8 @@ public class VConsultaProveedor extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jBTAgregarProveedores = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jBTSalirListaProveedores.setText("X");
         jBTSalirListaProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -188,30 +180,6 @@ public class VConsultaProveedor extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proveedorList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigo}"));
-        columnBinding.setColumnName("Codigo");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
-        columnBinding.setColumnName("Nombre");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${direccion}"));
-        columnBinding.setColumnName("Direccion");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cp}"));
-        columnBinding.setColumnName("Cp");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cuit}"));
-        columnBinding.setColumnName("Cuit");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefono}"));
-        columnBinding.setColumnName("Telefono");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -221,11 +189,7 @@ public class VConsultaProveedor extends javax.swing.JFrame {
                 .addComponent(jBTSalirListaProveedores))
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jBTAgregarProveedores))
         );
@@ -235,16 +199,12 @@ public class VConsultaProveedor extends javax.swing.JFrame {
                 .addComponent(jBTSalirListaProveedores)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
-                        .addComponent(jBTAgregarProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jBTAgregarProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(89, 89, 89))
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -316,12 +276,6 @@ public class VConsultaProveedor extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -338,7 +292,6 @@ public class VConsultaProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField TFLDirProveedor;
     private javax.swing.JTextField TFLNombreProveedor;
     private javax.swing.JTextField TFLTelProveedor;
-    private javax.persistence.EntityManager basededatosnegocioPUEntityManager;
     private javax.swing.JButton jBTAgregarProveedores;
     private javax.swing.JButton jBTBuscarLProveedores;
     private javax.swing.JButton jBTSalirListaProveedores;
@@ -349,10 +302,5 @@ public class VConsultaProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private java.util.List<vista.consulta.Proveedor> proveedorList;
-    private javax.persistence.Query proveedorQuery;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

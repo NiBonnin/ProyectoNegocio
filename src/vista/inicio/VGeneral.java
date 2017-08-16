@@ -92,7 +92,7 @@ public class VGeneral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdministracionActionPerformed
-        Administracion a = new Administracion();
+        VAdministracion a = new VAdministracion();
         a.setVisible(true);
     }//GEN-LAST:event_btAdministracionActionPerformed
 

@@ -20,6 +20,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
@@ -30,6 +31,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -53,21 +56,19 @@ public class VistaSplash extends javax.swing.JFrame {
         //SubstanceLookAndFeel.setSkin("CremeSkin");//setSkin("org.jvnet.substance.theme.CremeSkin");
         //SubstanceLookAndFeel.setCurrentTheme("org.jvnet.substance.theme.SubstanceAquaTheme");
         initComponents();
-        inicio();
-        //AVerAhora();
-        try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-                    ex.printStackTrace();
-                }
-                this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //this.add(new TestPane());
-                this.pack();
-                this.setLocationRelativeTo(null);
-                this.setVisible(true);
+        UIManager.put("ProgressBar.background", Color.WHITE);
+    UIManager.put("ProgressBar.foreground", Color.GREEN);
+    UIManager.put("ProgressBar.selectionBackground", Color.BLACK);
+    UIManager.put("ProgressBar.selectionForeground", Color.BLACK);
+    final JProgressBar progressBar = new JProgressBar();
+    VistaLogIn vlg = new VistaLogIn();
+    
+
+    
     }
+            
     
-    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.

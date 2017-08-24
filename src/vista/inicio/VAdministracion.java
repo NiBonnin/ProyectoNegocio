@@ -7,6 +7,7 @@ package vista.inicio;
 
 import vista.consulta.*;
 
+
 /**
  *
  * @author Nico
